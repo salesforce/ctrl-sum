@@ -3,7 +3,7 @@ This is PyTorch implementation of the [paper]():
 
 ```
 CTRLsum: Towards Generic Controllable Text Summarization
-Junxian He, Wojciech Maciej Kryscinski, Bryan McCann, Nazneen Rajani, Caiming Xiong
+Junxian He, Wojciech Kryściński, Bryan McCann, Nazneen Rajani, Caiming Xiong
 arXiv 2020
 ```
 
