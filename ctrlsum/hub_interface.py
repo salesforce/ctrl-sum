@@ -1,4 +1,10 @@
-# This code is upon slight modification of the sequence_generator.py file
+
+# Copyright (c) 2020, salesforce.com, inc.
+# All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
+# This code is upon slight modification of the hub_interface.py file
 # in fairseq library
 
 import copy

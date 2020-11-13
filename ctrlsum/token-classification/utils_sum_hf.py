@@ -1,5 +1,13 @@
 # coding=utf-8
-""" This is based on util_sum.py, but use the hugginface/datasets library as the backend
+
+# Copyright (c) 2020, salesforce.com, inc.
+# All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
+""" This code is based on
+https://github.com/huggingface/transformers/blob/master/examples/token-classification/utils_ner.py,
+but we modify it to use the hugginface/datasets library as the backend
 to deal with large datasets
 """
 

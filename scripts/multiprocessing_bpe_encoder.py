@@ -1,4 +1,10 @@
 #! /usr/bin/env python
+
+# Copyright (c) 2020, salesforce.com, inc.
+# All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
 # this code is based on the multiprocessing_bpe_encoder.py file
 # from the fairseq library:
 # https://github.com/pytorch/fairseq/blob/master/examples/roberta/multiprocessing_bpe_encoder.py

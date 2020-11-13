@@ -1,10 +1,10 @@
 #! /bin/bash
-#
-# test_bart.sh
-# Copyright (C) 2020-07-12 Junxian <He>
-#
-# Distributed under terms of the MIT license.
-#
+
+# Copyright (c) 2020, salesforce.com, inc.
+# All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+
 gpu=0
 src=test.oraclewordnssource
 tgt=test.target

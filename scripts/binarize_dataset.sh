@@ -1,11 +1,9 @@
 #! /bin/bash
-#
-# preprocess_fairseq.sh
-# Copyright (C) 2020-06-04 Junxian <He>
-#
-# Distributed under terms of the MIT license.
-#
 
+# Copyright (c) 2020, salesforce.com, inc.
+# All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 
 dataset=$1
 datadir=datasets/${dataset}
