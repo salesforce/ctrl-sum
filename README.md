@@ -59,7 +59,9 @@ CUDA_VISIBLE_DEVICES=xx python scripts/generate_bart_interactive.py --exp [check
 	--dataset example_dataset \
 	--src test.oraclewordnssource
 ```
-The command above reads source articles from `datasets/example_dataset/test.oraclewordnssource`, users can then interact with the system in the commandline by inputting the id of examples to be shown, as well as control tokens.
+The command above reads source articles from `datasets/example_dataset/test.oraclewordnssource`, users can then interact with the system in the commandline by inputting the id of examples to be shown, as well as the control tokens: 
+
+![ctrlsum](gif/ctrlsum.gif)
 
 
 
