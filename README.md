@@ -1,5 +1,5 @@
 # CTRLsum
-This is PyTorch implementation of the [paper]():
+This is PyTorch implementation of the [paper](https://arxiv.org/abs/2012.04281):
 
 ```
 CTRLsum: Towards Generic Controllable Text Summarization
@@ -7,14 +7,18 @@ Junxian He, Wojciech Kryściński, Bryan McCann, Nazneen Rajani, Caiming Xiong
 arXiv 2020
 ```
 
-This repo includes pretrained model checkpoints as well as detailed training/evaluation instructions.
+This repo includes instructions for [using pretrained CTRLsum models](#example-usage-of-pretrained-models) as well as [training new models](#train-ctrlsum).
 
 CTRLsum is a generic controllable summarization system to manipulate text summaries given control tokens in the form of keywords or prefix. CTRLsum is also able to achieve strong (e.g. state-of-the-art on CNN/Dailymail) summarization performance in an uncontrolled setting. 
 
 ## Model checkpoints
-[TODO] need to separate as different datasets
 
-[Download](https://storage.googleapis.com/sfr-control-summ-data-research/junxian-pretrained-models.tar.gz)
+Dataset | Dowload
+---|---
+CNN/DailyMail | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-summ-data-research/cnndm_ctrlsum.tar.gz)
+arXiv | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-summ-data-research/arxiv_ctrlsum.tar.gz)
+BIGPATENT | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-summ-data-research/big_patent_ctrlsum.tar.gz)
+
 
 ## Dependencies
 The code requires Python 3, [PyTorch](https://pytorch.org/) (>=1.4.0), and [fairseq](https://github.com/pytorch/fairseq) (the code is tested on this [commit](https://github.com/pytorch/fairseq/commit/fad3cf0769843e767155f4d0af18a61b9a804f59))
@@ -45,9 +49,21 @@ cd ..
 pip install -r requirements.txt
 ```
 
-## Example Usage
+## Example Usage of Pretrained Models
 
-##### Generate summaries from a file:
+
+### Generate summaries in an interactive way, users can specify the control tokens (keywords, prompts, or both):
+
+```bash 
+CUDA_VISIBLE_DEVICES=xx python scripts/generate_bart_interactive.py --exp [checkpoint directory] \
+	--dataset example_dataset \
+	--src test.oraclewordnssource
+```
+The command above reads source articles from `datasets/example_dataset/test.oraclewordnssource`, users can then interact with the system in the commandline by inputting the id of examples to be shown, as well as control tokens.
+
+
+
+### Generate summaries from a file which includes keywords:
 
 ```bash
 # the following command generates summaries from `datasets/example_dataset/test.oraclewordnssource`
@@ -60,20 +76,9 @@ CUDA_VISIBLE_DEVICES=xx python scripts/generate_bart.py --exp [checkpoint direct
 ```
 
 
-
-##### Generate summaries in an interactive way, users can specify the control tokens:
-
-```bash
-# the following command allows users to input their own keywords/prefix to generate summaries in
-# an interactive way
-CUDA_VISIBLE_DEVICES=xx python scripts/generate_bart_interactive.py --exp [checkpoint directory] \
-	--dataset example_dataset \
-	--src test.oraclewordnssource
-```
-
 ## Train CTRLsum
 
-#### Data Processing
+### Data Processing
 
 Prepare your data files into `datasets/[dataset name]`, which should consist of six data files as `[train/val/test].[source/target]`. These data files are raw text with each row representing one example. We take `cnndm` dataset as an example to preprocess the dataset (see [here](https://github.com/pytorch/fairseq/blob/master/examples/bart/README.summarization.md) for instructions to obtain the cnndm dataset): 
 
@@ -93,7 +98,7 @@ bash scripts/binarize_dataset.ssh cnndm
 
 For the generated files in the `datasets/cnndm`, the suffix `oracleword` represents the keywords (after keyword dropout) file,   `oraclewordsource` represents the concatenated keywords and source. `oraclewordns` represents the original keywords without keyword dropout. The `.jsonl` files are potentially used to train the tagger later.
 
-#### Train the summarization model on multiple GPUs:
+### Train the summarization model on multiple GPUs:
 
 ```
 bash scripts/train_bart.sh -g [GPUs] -d [dataset name]
@@ -102,7 +107,8 @@ bash scripts/train_bart.sh -g [GPUs] -d [dataset name]
 
 
 
-#### Train the keyword tagger:
+### Train the keyword tagger (optional):
+Note that the keyword tagger is required only in uncontrolled summarization setting and certain control settings which require automatic keywords (like length control in the paper)
 ```bash
 # this requires to give 4 gpus for training by default,
 # you need to change the --nproc_per_node value if you 
@@ -115,8 +121,9 @@ The effective batch size we used for different datasets can be found in the trai
 
 
 ## Evaluate CTRLsum
+Here we include evaluation for uncontrolled summarization settings. 
 
-##### Obtain automatic keywords from a trained tagger (for uncontrolled summarization setting or some control aspects settings):
+### Obtain automatic keywords from a trained tagger:
 
 ```bash
 # run prediction from the tagger which outputs confidence values for every token
@@ -141,7 +148,7 @@ python scripts/preprocess.py [dataset name] \
 
 
 
-##### Metrics:
+### Metrics:
 
 We report ROUGE scores and [BERTScore](https://github.com/Tiiiger/bert_score) in the paper. The ROUGE scores in the paper are computed using [files2rouge](https://github.com/pltrdy/files2rouge) which is a wrapper of a wrapper of the original ROUGE perl scripts. 
 
