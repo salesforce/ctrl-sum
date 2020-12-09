@@ -29,7 +29,7 @@ params_dict = {
         'big_patent': {'max_len_b': 256},
     }
 
-params = params_dict[args.dataset]
+params = params_dict.get(args.dataset, {'max_len_b': 140})
 
 if args.rc:
     params_rc = {
@@ -93,7 +93,7 @@ while True:
 
     while True:
         if args.unconstrained:
-            prefix = input("input prefix (type 'exit' to go back to example selection):")
+            prefix = input("input prompt (type 'exit' to go back to example selection):")
             if prefix == 'exit':
                 break
             prefix = ' {}'.format(prefix.strip())
@@ -101,7 +101,7 @@ while True:
             keywords = input("input keywords (type 'exit' to go back to example selection):")
             if keywords == 'exit':
                 break
-            prefix = input("input prefix (type 'exit' to go back to example selection):")
+            prefix = input("input prompt (type 'exit' to go back to example selection):")
             if prefix.strip() == '':
                 prefix = None
             elif prefix == 'same':
