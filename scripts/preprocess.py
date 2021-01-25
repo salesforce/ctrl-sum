@@ -1518,6 +1518,8 @@ if __name__ == '__main__':
                 summary_len=args.summary_size, maximum_word=args.maximum_word,
                 outfix=args.outfix)
             paste(split, args.src, datadir, key=suffix)
+            auto_truncate(f'{datadir}/{split}.{suffix}{args.src}', f'{datadir}/tmp.src', args.max_position)
+            os.rename(f'{datadir}/tmp.src', f'{datadir}/{split}.{suffix}{args.src}')
             add_leading_space(f'{datadir}/{split}.{suffix}{args.src}')
             os.rename(f'{datadir}/{split}.{suffix}{args.src}lead', f'{datadir}/{split}.{suffix}{args.src}')
 
@@ -1584,6 +1586,8 @@ if __name__ == '__main__':
 
             add_leading_space(f'{datadir}/{split}.oracleword{args.src}')
             os.rename(f'{datadir}/{split}.oracleword{args.src}lead', f'{datadir}/{split}.oracleword{args.src}')
+
+            add_leading_space(f'{datadir}/{split}.{args.tgt}')
 
             if split == 'test':
                 paste(split, args.src, datadir, key='oraclewordns')

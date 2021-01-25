@@ -33,7 +33,7 @@ params_dict = {
         'big_patent': {'max_len_b': 256, 'beam': 4, 'no_repeat': 3},
     }
 
-params = params_dict[args.dataset]
+params = params_dict.get(args.dataset, params_dict['cnndm'])
 
 if args.max_len is not None:
     params['max_len_b'] = args.max_len
