@@ -152,7 +152,13 @@ python scripts/preprocess.py [dataset name] \
 
 ### Metrics:
 
-We report ROUGE scores and [BERTScore](https://github.com/Tiiiger/bert_score) in the paper. The ROUGE scores in the paper are computed using [files2rouge](https://github.com/pltrdy/files2rouge) which is a wrapper of a wrapper of the original ROUGE perl scripts. 
+We report ROUGE scores and [BERTScore](https://github.com/Tiiiger/bert_score) in the paper. The ROUGE scores in the paper are computed using [files2rouge](https://github.com/pltrdy/files2rouge) which is a wrapper of a wrapper of the original ROUGE perl scripts. Please refer to `scripts/test_bart.sh` for our evaluation script:
+
+```bash
+# you will need the Stanford corenlp java toolkit to run this, we use it for tokenization
+# this script computes ROUGE and (optionally) BERTScore.
+bash scripts/test_bart.sh -g [GPUs] -s [source file name, NOT full path] -d [dataset] -p [ctrlsum checkpoint directory]
+```
 
 ## Citation
 
