@@ -115,7 +115,7 @@ Note that the keyword tagger is required only in uncontrolled summarization sett
 # this requires to give 4 gpus for training by default,
 # you need to change the --nproc_per_node value if you 
 # train with different number of gpus
-bash scripts/train_seqlabel.sh -g [GPUs] -d [dataset name] -b [the bart checkpoint .pt file]
+bash scripts/train_seqlabel.sh -g [GPUs] -d [dataset name]
 ```
 
 The effective batch size we used for different datasets can be found in the training script as `number of gpus x batch x uddate_freq`
