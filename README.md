@@ -103,7 +103,7 @@ For the generated files in the `datasets/cnndm`, the suffix `oracleword` represe
 ### Train the summarization model on multiple GPUs:
 
 ```
-bash scripts/train_bart.sh -g [GPUs] -d [dataset name]
+bash scripts/train_bart.sh -g [GPUs] -d [dataset name] -b [bart checkpoint path]
 ```
 `GPUs` are GPU ids separated by `,`. All our experiments are on 8 GPUs accumulating 8 gradient steps, resulting in an effective batch size of 1024x8x8 tokens in total. You propably need to increase the `update_freq` variable in `train_bart.sh` if you use less GPUs to match the effective batch size. The saved models are in dir `checkpoint`. The training arguments can be found in `train_bart.sh`.
 
@@ -115,7 +115,7 @@ Note that the keyword tagger is required only in uncontrolled summarization sett
 # this requires to give 4 gpus for training by default,
 # you need to change the --nproc_per_node value if you 
 # train with different number of gpus
-bash scripts/train_seqlabel.sh -g [GPUs] -d [dataset name]
+bash scripts/train_seqlabel.sh -g [GPUs] -d [dataset name] -b [the bart checkpoint .pt file]
 ```
 
 The effective batch size we used for different datasets can be found in the training script as `number of gpus x batch x uddate_freq`
