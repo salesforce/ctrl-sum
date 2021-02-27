@@ -95,7 +95,7 @@ python scripts/preprocess.py cnndm --mode pipeline
 bash scripts/gpt2_encode.sh cnndm
 
 # binarize dataset for fairseq
-bash scripts/binarize_dataset.ssh cnndm
+bash scripts/binarize_dataset.sh cnndm
 ```
 
 For the generated files in the `datasets/cnndm`, the suffix `oracleword` represents the keywords (after keyword dropout) file,   `oraclewordsource` represents the concatenated keywords and source. `oraclewordns` represents the original keywords without keyword dropout. The `.jsonl` files are potentially used to train the tagger later.
