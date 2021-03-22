@@ -7,9 +7,58 @@ Junxian He, Wojciech Kryściński, Bryan McCann, Nazneen Rajani, Caiming Xiong
 arXiv 2020
 ```
 
-This repo includes instructions for [using pretrained CTRLsum models](#example-usage-of-pretrained-models) as well as [training new models](#train-ctrlsum).
+This repo includes instructions for [using pretrained CTRLsum models](#example-usage-of-pretrained-models) as well as [training new models](#train-ctrlsum). 
 
 CTRLsum is a generic controllable summarization system to manipulate text summaries given control tokens in the form of keywords or prefix. CTRLsum is also able to achieve strong (e.g. state-of-the-art on CNN/Dailymail) summarization performance in an uncontrolled setting. 
+
+## Updates
+**Mar 22, 2021**
+
+[Hyunwoong Ko](https://github.com/hyunwoongko) made a python package, [summarizers](https://github.com/hyunwoongko/summarizers), based on CTRLsum. CTRLsum is also now supported in [huggingface transformers](https://github.com/huggingface/transformers) credited to Hyunwoong Ko. Currently CTRLsum can be easily used with several lines of codes with these packages, for example in huggingface transformers (quoted from [here](https://github.com/huggingface/transformers/issues/9001#issuecomment-803613963)):
+
+> ### 1. Create models and tokenizers
+> ```python
+> >> from transformers import AutoModelForSeq2SeqLM, PreTrainedTokenizerFast
+> 
+> >>> model = AutoModelForSeq2SeqLM.from_pretrained("hyunwoongko/ctrlsum-cnndm")
+> >>> # model = AutoModelForSeq2SeqLM.from_pretrained("hyunwoongko/ctrlsum-arxiv")
+> >>> # model = AutoModelForSeq2SeqLM.from_pretrained("hyunwoongko/ctrlsum-bigpatent")
+> 
+> >>> tokenizer = PreTrainedTokenizerFast.from_pretrained("hyunwoongko/ctrlsum-cnndm")
+> >>> # tokenizer = PreTrainedTokenizerFast.from_pretrained("hyunwoongko/ctrlsum-arxiv")
+> >>> # tokenizer = PreTrainedTokenizerFast.from_pretrained("hyunwoongko/ctrlsum-bigpatent")
+> ```
+> 
+> ### 2. Unconditioned summarization
+> ```python
+> >>> data = tokenizer("My name is Kevin. I love dogs. I loved dogs from 1996. Today, I'm going to walk on street with my dogs", return_tensors="pt")
+> >>> input_ids, attention_mask = data["input_ids"], data["attention_mask"]
+> >>> tokenizer.batch_decode(model.generate(input_ids, attention_mask=attention_mask, num_beams=5))[0]
+> '</s>My name is Kevin. I loved dogs from 1996.</s>'
+> ```
+> 
+> ### 3. Conditioned summarization
+> * You can input condition token using `TOKEN => CONTENTS` structure
+> 
+> ```python
+> >>> data = tokenizer("today plan => My name is Kevin. I love dogs. I loved dogs from 1996. Today, I'm going to walk on street with my dogs", return_tensors="pt")
+> >>> input_ids, attention_mask = data["input_ids"], data["attention_mask"]
+> >>> tokenizer.batch_decode(model.generate(input_ids, attention_mask=attention_mask, num_beams=5))[0]
+> "</s> Today, I'm going to walk on street with my dogs. I loved dogs from 1996</s>"
+> ```
+> 
+> ### 4. Prompt summarization
+> * You can also input `decoder_input_ids` for input prompt.
+> 
+> ```python
+> >>> data = tokenizer("Q:What is my name? A: => My name is Kevin. I love dogs. I loved dogs from 1996. Today, I'm going to walk on street with my dogs", return_tensors="pt")
+> >>> input_ids, attention_mask = data["input_ids"], data["attention_mask"]
+> >>> tokenizer.batch_decode(model.generate(input_ids, attention_mask=attention_mask, num_beams=5, decoder_input_ids=tokenizer("Q:What is My name? A:", return_tensors="pt")["input_ids"][:, :-1]))[0]
+> '<s>Q:What is My name? A: Kevin.</s>'
+> ```
+
+
+
 
 ## Model checkpoints
 
