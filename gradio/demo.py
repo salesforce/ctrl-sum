@@ -4,21 +4,14 @@ import gradio as gr
 summ = Summarizers('normal')
 
 
-def ctrlsum(contents, InQuery, InPrompt, CheckQ, CheckP):
-  if CheckQ:
-    return summ(contents, query=InQuery)
-  if CheckP: 
-    return summ(contents, prompt=InPrompt)
-  if CheckQ and CheckP:
+def ctrlsum(contents, InQuery, InPrompt):
     return summ(contents, query=InQuery, prompt=InPrompt)
-  if CheckQ is False and CheckP is False:
-    return summ(contents)
+
 
 inputs = [gr.inputs.Textbox(lines=5, label="Input Text"),
           gr.inputs.Textbox(lines=1, label="Input Query"),
-          gr.inputs.Textbox(lines=1, label="Input Prompt"),
-          gr.inputs.Checkbox(label="Query"),
-          gr.inputs.Checkbox(label="Prompt")]
+          gr.inputs.Textbox(lines=1, label="Input Prompt")
+         ]
 
 outputs =  gr.outputs.Textbox(label="CTRLsum")
 
@@ -29,7 +22,16 @@ examples = [
             ["""Tunip is the Octonauts' head cook and gardener. 
 He is a Vegimal, a half-animal, half-vegetable creature capable of breathing on land as well as underwater. 
 Tunip is very childish and innocent, always wanting to help the Octonauts in any way he can. 
-He is the smallest main character in the Octonauts crew."""]
+He is the smallest main character in the Octonauts crew."""],
+            ["""Tunip is the Octonauts' head cook and gardener. 
+He is a Vegimal, a half-animal, half-vegetable creature capable of breathing on land as well as underwater. 
+Tunip is very childish and innocent, always wanting to help the Octonauts in any way he can. 
+He is the smallest main character in the Octonauts crew.""", "main character of Octonauts"],
+            ["""Tunip is the Octonauts' head cook and gardener. 
+He is a Vegimal, a half-animal, half-vegetable creature capable of breathing on land as well as underwater. 
+Tunip is very childish and innocent, always wanting to help the Octonauts in any way he can. 
+He is the smallest main character in the Octonauts crew.""","personality of Tunip", "Tunip is very"] 
+            
 ]
 
 gr.Interface(ctrlsum, inputs, outputs, title=title, description=description, article=article, examples=examples).launch()
