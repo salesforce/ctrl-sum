@@ -3,11 +3,23 @@ import gradio as gr
 
 summ = Summarizers('normal')
 
-def ctrlsum(text):
-  contents = text
-  return summ(contents)
 
-inputs = gr.inputs.Textbox(lines=5, label="Input Text")
+def ctrlsum(contents, InQuery, InPrompt, CheckQ, CheckP):
+  if CheckQ:
+    return summ(contents, query=InQuery)
+  if CheckP: 
+    return summ(contents, prompt=InPrompt)
+  if CheckQ and CheckP:
+    return summ(contents, query=InQuery, prompt=InPrompt)
+  if CheckQ is False and CheckP is False:
+    return summ(contents)
+
+inputs = [gr.inputs.Textbox(lines=5, label="Input Text"),
+          gr.inputs.Textbox(lines=1, label="Input Query"),
+          gr.inputs.Textbox(lines=1, label="Input Prompt"),
+          gr.inputs.Checkbox(label="Query"),
+          gr.inputs.Checkbox(label="Prompt")]
+
 outputs =  gr.outputs.Textbox(label="CTRLsum")
 
 title = "CTRLsum"
