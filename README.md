@@ -12,6 +12,9 @@ This repo includes instructions for [using pretrained CTRLsum models](#example-u
 CTRLsum is a generic controllable summarization system to manipulate text summaries given control tokens in the form of keywords or prefix. CTRLsum is also able to achieve strong (e.g. state-of-the-art on CNN/Dailymail) summarization performance in an uncontrolled setting. 
 
 ## Updates
+**May 18, 2021**
+[Web Demo](https://gradio.app/g/AK391/ctrl-sum) on Gradio 
+
 **Mar 22, 2021**
 
 [Hyunwoong Ko](https://github.com/hyunwoongko) made a python package, [summarizers](https://github.com/hyunwoongko/summarizers), based on CTRLsum. CTRLsum is also now supported in [huggingface transformers](https://github.com/huggingface/transformers) credited to Hyunwoong Ko. Currently CTRLsum can be easily used with several lines of codes with these packages, for example in huggingface transformers (quoted from [here](https://github.com/huggingface/transformers/issues/9001#issuecomment-803613963)):
