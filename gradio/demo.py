@@ -8,12 +8,12 @@ def ctrlsum(contents, InQuery, InPrompt):
     return summ(contents, query=InQuery, prompt=InPrompt)
 
 
-inputs = [gr.inputs.Textbox(lines=5, label="Input Text"),
-          gr.inputs.Textbox(lines=1, label="Input Query"),
-          gr.inputs.Textbox(lines=1, label="Input Prompt")
+inputs = [gr.inputs.Textbox(lines=5, label="Text"),
+          gr.inputs.Textbox(lines=1, label="Query"),
+          gr.inputs.Textbox(lines=1, label="Prompt")
          ]
 
-outputs =  gr.outputs.Textbox(label="CTRLsum")
+outputs =  gr.outputs.Textbox(label="Summarization")
 
 title = "CTRLsum"
 description = "demo for Salesforce CTRLsum. To use it, simply input text or click one of the examples text to load them. Read more at the links below."
