@@ -1,15 +1,11 @@
-from transformers import AutoModelForSeq2SeqLM, PreTrainedTokenizerFast
+from summarizers import Summarizers
 import gradio as gr
 
-model = AutoModelForSeq2SeqLM.from_pretrained("hyunwoongko/ctrlsum-cnndm")
-
-tokenizer = PreTrainedTokenizerFast.from_pretrained("hyunwoongko/ctrlsum-cnndm")
-
+summ = Summarizers('normal')
 
 def ctrlsum(text):
-  data = tokenizer(text, return_tensors="pt")
-  input_ids, attention_mask = data["input_ids"], data["attention_mask"]
-  return tokenizer.batch_decode(model.generate(input_ids, attention_mask=attention_mask, num_beams=5))[0].replace("</s>","")
+  contents = text
+  return summ(contents)
 
 inputs = gr.inputs.Textbox(lines=5, label="Input Text")
 outputs =  gr.outputs.Textbox(label="CTRLsum")
