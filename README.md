@@ -87,7 +87,7 @@ CUDA_VISIBLE_DEVICES=xx python scripts/generate_bart.py --exp [checkpoint direct
 ```
 
 ### Option 3. Through Huggingface Transformers
-Our pretrained model checkpoints are available in huggingface transformers (https://github.com/huggingface/transformers), the model names are: `hyunwoongko/ctrlsum-cnndm`, `hyunwoongko/ctrlsum-arxiv`, and `hyunwoongko/ctrlsum-bigpatent`. An example code snippet (quoted from [here](https://github.com/huggingface/transformers/issues/9001#issuecomment-803613963)):
+Our pretrained model checkpoints are available in [huggingface transformers](https://github.com/huggingface/transformers), the model names are: `hyunwoongko/ctrlsum-cnndm`, `hyunwoongko/ctrlsum-arxiv`, and `hyunwoongko/ctrlsum-bigpatent`. An example code snippet (quoted from [here](https://github.com/huggingface/transformers/issues/9001#issuecomment-803613963)):
 
 > ### 1. Create models and tokenizers
 > ```python
