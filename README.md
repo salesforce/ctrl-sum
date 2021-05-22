@@ -12,8 +12,10 @@ This repo includes instructions for [using pretrained CTRLsum models](#example-u
 CTRLsum is a generic controllable summarization system to manipulate text summaries given control tokens in the form of keywords or prefix. CTRLsum is also able to achieve strong (e.g. state-of-the-art on CNN/Dailymail) summarization performance in an uncontrolled setting. 
 
 ## Updates
-**May 18, 2021**
-[Web Demo](https://gradio.app/g/AK391/ctrl-sum) on Gradio 
+
+**May 22, 2021**
+
+User @AK391 has created a simple Web UI Demo ([here](https://gradio.app/g/AK391/ctrl-sum)) which allows to directly input source/keywords/prompts and generate in your browser.
 
 **Mar 22, 2021**
 
