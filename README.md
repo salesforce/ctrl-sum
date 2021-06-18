@@ -11,7 +11,7 @@ This repo includes instructions for [using pretrained CTRLsum models](#example-u
 
 CTRLsum is a generic controllable summarization system to manipulate text summaries given control tokens in the form of keywords or prefix. CTRLsum is also able to achieve strong (e.g. state-of-the-art on CNN/Dailymail) summarization performance in an uncontrolled setting. 
 
-🎥 [Demo1](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)(to navigate the CTRLsum outputs in our experiments) 
+🎥 [Demo1](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)(to navigate the CTRLsum outputs used in our experiments) 
 
 🎥 [Demo2](https://gradio.app/g/AK391/ctrl-sum)(to interactively generate using the pretrained model)
 
@@ -26,7 +26,7 @@ BIGPATENT | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-summ
 ## Updates
 **June 18, 2021**
 
-We released another Web UI Demo ([here](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)) to navigate most of CTRLsum outputs generated in the paper experiments.
+We released another Web UI Demo ([here](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)) to navigate most of CTRLsum outputs generated in the experiments of the paper.
 
 **May 22, 2021**
 
@@ -139,7 +139,7 @@ Our pretrained model checkpoints are available in [huggingface transformers](htt
 > ```
 
 ### Option 4. Web UI Demo
-User @AK391 created a simple Web UI Demo ([here](https://gradio.app/g/AK391/ctrl-sum)) which allows to directly input source/keywords/prompts and generate in your browser.
+User @AK391 created a simple Web UI Demo ([here](https://gradio.app/g/AK391/ctrl-sum)) which allows to directly input source/keywords/prompts and generate in your browser. We also host a Web UI Demo ([here](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)) to navigate most of CTRLsum outputs generated in the experiments of the paper.
 
 
 ## Train CTRLsum
