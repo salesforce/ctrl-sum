@@ -23,6 +23,8 @@ CNN/DailyMail | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-
 arXiv | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-summ-data-research/arxiv_ctrlsum.tar.gz)
 BIGPATENT | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-summ-data-research/big_patent_ctrlsum.tar.gz)
 
+These checkpoints are also available in [huggingface transformers](https://github.com/huggingface/transformers), see details [below](#option-3-through-huggingface-transformers).
+
 ## Updates
 **June 18, 2021**
 
