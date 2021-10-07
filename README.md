@@ -11,9 +11,10 @@ This repo includes instructions for [using pretrained CTRLsum models](#example-u
 
 CTRLsum is a generic controllable summarization system to manipulate text summaries given control tokens in the form of keywords or prefix. CTRLsum is also able to achieve strong (e.g. state-of-the-art on CNN/Dailymail) summarization performance in an uncontrolled setting. 
 
-🎥 [Demo1](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)(to navigate the CTRLsum outputs used in our experiments) 
+🎥 Demo1: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/akhaliq/ctrl-sum)(to interactively generate using the pretrained model)
 
-🎥 [Demo2](https://huggingface.co/spaces/akhaliq/ctrl-sum)(to interactively generate using the pretrained model)
+🎥 [Demo2](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)(to navigate the CTRLsum outputs used in our experiments) 
+
 
 ## Model checkpoints
 
