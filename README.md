@@ -13,7 +13,7 @@ CTRLsum is a generic controllable summarization system to manipulate text summar
 
 🎥 [Demo1](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)(to navigate the CTRLsum outputs used in our experiments) 
 
-🎥 [Demo2](https://gradio.app/g/AK391/ctrl-sum)(to interactively generate using the pretrained model)
+🎥 [Demo2](https://huggingface.co/spaces/akhaliq/ctrl-sum)(to interactively generate using the pretrained model)
 
 ## Model checkpoints
 
@@ -26,13 +26,14 @@ BIGPATENT | [download (.tar.gz)](https://storage.googleapis.com/sfr-control-summ
 These checkpoints are also available in [huggingface transformers](https://github.com/huggingface/transformers), see details [below](#option-3-through-huggingface-transformers).
 
 ## Updates
+
+**October 07, 2021**
+
+Integrated to [Huggingface Spaces](https://huggingface.co/spaces) with [Gradio](https://github.com/gradio-app/gradio). See demo: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/akhaliq/ctrl-sum)
+
 **June 18, 2021**
 
 We released another Web UI Demo ([here](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)) to navigate most of CTRLsum outputs generated in the experiments of the paper.
-
-**May 22, 2021**
-
-User @AK391 has created a simple Web UI Demo ([here](https://gradio.app/g/AK391/ctrl-sum)) which allows to directly input source/keywords/prompts and generate in your browser.
 
 **Mar 22, 2021**
 
