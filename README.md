@@ -142,8 +142,8 @@ Our pretrained model checkpoints are available in [huggingface transformers](htt
 > '<s>Q:What is My name? A: Kevin.</s>'
 > ```
 
-### Option 4. Web UI Demo
-User @AK391 created a simple Web UI Demo ([here](https://gradio.app/g/AK391/ctrl-sum)) which allows to directly input source/keywords/prompts and generate in your browser. We also host a Web UI Demo ([here](https://share.streamlit.io/jxhe/ctrlsum-demo/ctrlsum_demo.py)) to navigate most of CTRLsum outputs generated in the experiments of the paper.
+### Option 4. Through the Summarizers Python Package
+ The python package [summarizers](https://github.com/hyunwoongko/summarizers) allows you to use the pretrained CTRLsum with several lines of code. 
 
 
 ## Train CTRLsum
