@@ -30,7 +30,7 @@ These checkpoints are also available in [huggingface transformers](https://githu
 
 **April 09, 2022**
 
-[@aliencaocao](aliencaocao) made a repo [here](https://github.com/aliencaocao/CTRLSum-tagger) on converting our pretrained taggers into ONNX to make it much faster to load and run inference.
+[@aliencaocao](https://github.com/aliencaocao) made a repo [here](https://github.com/aliencaocao/CTRLSum-tagger) on converting our pretrained taggers into ONNX to make it much faster to load and run inference.
 
 **October 07, 2021**
 
