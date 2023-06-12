@@ -3,7 +3,7 @@ sklearn
 tensorboardX
 
 datasets==1.0.1
-transformers==3.0.2
+transformers==4.30.0
 spacy==2.3.2
 stanza>=1.0.1
 
